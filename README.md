@@ -3,7 +3,7 @@
 
 > “We are all scattered stardust—and Noah gathers those particles into brilliant constellations.”  
 > With Noah Infinite Universe, your face becomes the ink, and the cosmos becomes the pen, painting an epic that’s uniquely yours.  
-<img width="1230" alt="fec11eb453a1179a9b08b5898ba1597" src="https://github.com/user-attachments/assets/00836bef-b39e-4c91-881b-0737b37d85ce" />
+<img width="1232" alt="eb4857a235bbd58d054e5fe673cddd6" src="https://github.com/user-attachments/assets/37ea1342-703d-4350-a826-b0f305d82f0c" />
 
 ---
 
@@ -41,6 +41,27 @@ Noah Infinite Universe is a single-page web application (SPA) that harnesses cut
    ```bash
    cd NoahAI_web_serve
    python manage.py runserver 6006
+## 📖 How to Use  
+1. **Upload Photos**  
+   Click “Upload” and select five clear personal shots (frontal or profiles).  
+2. **Enter a Theme**  
+   Type in any narrative—“space odyssey,” “ancient wuxia saga,” “cyberpunk rebellion,” etc.  
+3. **Generate Your Comic**  
+   Hit “Generate,” watch the live progress bar, and preview frames as they appear.
+<img width="1231" alt="4c4f6ce71cb773578d15bffa7a69a05" src="https://github.com/user-attachments/assets/4fd01db5-3f4d-4256-84fe-0b62de697a20" />
+
+5. **Download & Share**  
+   When all 20 frames are ready, download them as a ZIP or share directly to social platforms.  
+
+## 🔮 Future Roadmap  
+- **Multi-Scene Storylines**: Seamlessly link different themes into a continuous timeline  
+- **Social Integration**: One-click sharing to WeChat, Weibo, Instagram  
+- **Enhanced Model Training**: Scale up LoRA clusters and add more ControlNet variants for even richer detail
+<img width="1230" alt="ba6f3d7719349c6b9e106cea59577fe" src="https://github.com/user-attachments/assets/88c00679-4c6d-4c2b-829c-b83fda31b1b0" />
+
+---  
+
+Noah Infinite Universe is more than a web app—it’s your personalized, limitless narrative. Ready to write your own legend? 🌟  
 
 
    
