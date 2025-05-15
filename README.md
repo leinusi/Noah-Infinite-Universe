@@ -8,7 +8,7 @@
 ---
 
 ## 🚀 Project Overview  
-Noah Infinite Universe is a single-page web application (SPA) that harnesses cutting-edge AI to generate a 20-panel “comic strip” starring you. Simply upload **5 personal photos**, enter your desired story theme, and watch a Vue 3 + TypeScript frontend talk to the backend via WebSocket in real-time—then deliver a fully AI-crafted, high-fidelity narrative in images.  
+Noah Infinite Universe is a Django web application that harnesses cutting-edge AI to generate a 20-panel “comic strip” starring you. Simply upload **5 personal photos**, enter your desired story theme, and watch a Vue 3 + TypeScript frontend talk to the backend via WebSocket in real-time—then deliver a fully AI-crafted, high-fidelity narrative in images.  
 
 ## ✨ Key Features  
 1. **Personalized Style Transfer**  
