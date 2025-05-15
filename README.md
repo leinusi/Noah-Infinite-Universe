@@ -12,8 +12,8 @@ Noah Infinite Universe is a single-page web application (SPA) that harnesses cut
 
 ## ✨ Key Features  
 1. **Personalized Style Transfer**  
-   - Fine-tune Stable Diffusion v1.5 with LoRA (Low-Rank Adaptation) on your 5 uploaded photos  
-   - Achieve ultra-realistic face swaps using the EasyFace plugin  
+   - Fine-tune personalized face embeddings on your five uploaded photos using our proprietary face-swap network enhanced with LoRA (Low-Rank Adaptation) 
+   - Leverage an optimized inference engine to deliver ultra-realistic swaps in seconds, complete with real-time previews of your creative results 
 
 2. **Real-Time Progress & Interaction**  
    - Vue 3 + TypeScript SPA communicates over WebSocket  
@@ -45,7 +45,9 @@ Noah Infinite Universe is a single-page web application (SPA) that harnesses cut
 1. **Upload Photos**  
    Click “Upload” and select five clear personal shots (frontal or profiles).  
 2. **Enter a Theme**  
-   Type in any narrative—“space odyssey,” “ancient wuxia saga,” “cyberpunk rebellion,” etc.  
+   In the theme input box, type in the narrative you’d like. For example:  
+   - “I want to generate a story where I’m the Empress in a Qing Dynasty palace.”  
+   - “I’m a top agent infiltrating a Nazi camp to complete a mission.” 
 3. **Generate Your Comic**  
    Hit “Generate,” watch the live progress bar, and preview frames as they appear.
 <img width="1231" alt="4c4f6ce71cb773578d15bffa7a69a05" src="https://github.com/user-attachments/assets/4fd01db5-3f4d-4256-84fe-0b62de697a20" />
