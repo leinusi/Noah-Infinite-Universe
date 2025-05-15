@@ -3,6 +3,7 @@
 
 > “We are all scattered stardust—and Noah gathers those particles into brilliant constellations.”  
 > With Noah Infinite Universe, your face becomes the ink, and the cosmos becomes the pen, painting an epic that’s uniquely yours.  
+<img width="1230" alt="fec11eb453a1179a9b08b5898ba1597" src="https://github.com/user-attachments/assets/00836bef-b39e-4c91-881b-0737b37d85ce" />
 
 ---
 
@@ -30,21 +31,16 @@ Noah Infinite Universe is a single-page web application (SPA) that harnesses cut
    - **Reverse Proxy & Security**: Nginx + HTTPS  
    - **Monitoring**: Prometheus + Grafana for uptime and performance  
 
-## 🏗️ Architecture Diagram  
-```mermaid
-flowchart LR
-  subgraph Frontend
-    A[Vue 3 + TypeScript SPA] -->|WebSocket| B(WebSocket Server)
-  end
-  subgraph Backend
-    B --> C[Django REST API]
-    C --> D[PostgreSQL]
-    C --> E[Redis Cache]
-    C --> F[Celery + RabbitMQ]
-    F --> G[EasyFace: SD v1.5 + ControlNet]
-    F --> H[GLM3 Text Service]
-  end
-  subgraph Infrastructure
-    I[Nginx + HTTPS] --> C
-    J[Prometheus] --> K[Grafana]
-  end
+## ⚙️ Installation & Run  
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/leinusi/Noah-Infinite-Universe.git
+   cd Noah-Infinite-Universe
+2. **Start the backend server**  
+   ```bash
+   cd NoahAI_web_serve
+   python manage.py runserver 6006
+
+
+   
