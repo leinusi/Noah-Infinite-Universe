@@ -1,0 +1,127 @@
+{% extends "blog/base.html" %}
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div id="hiddenSection" style="display: none;">
+    <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="{% static 'blog/ground.png' %}" alt="" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            
+							您的照片已在制作<br>请耐心等待 
+                        </h1>
+						<h1>预计等待时间: <span id="numberDisplay">0</span></h1>
+                        <p class="home__description">
+                            Create incredible world designed for yourself. 
+                            Add fresness to your new ideas.
+                        </p>
+                        
+                    </div>
+
+                    <div class="home__social">
+                        <span class="home__social-follow">Follow Us</span>
+
+                        <div class="home__social-links">
+                            <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+</div>	
+	
+	
+	
+	
+	
+	
+<section class="steps section container" id="stepsSection">
+    <div class="form-group">
+        <form action="noah/blog/templates/blog/create" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">
+                    开始拟合 <br>
+                </h2>
+                <div class="steps__container grid">
+                    <div class="steps__card">
+                        <div class="steps__card-number">01</div>
+                        <h3 class="steps__card-title">选择你想要的模版图片</h3>
+                        <p class="steps__card-description">
+                            选择一张<br>
+                            （模版需要含有清晰人像哦）<br><br>
+                        </p>
+                        <input class="button--link button--flex" type="file" name="Chars" id="Chars" size="5" accept="image/*" style="width: 140px">
+                    </div>
+
+                    <div class="steps__card">
+                        <div class="steps__card-number">02</div>
+                        <h3 class="steps__card-title">点击“上传”按钮</h3>
+                        <p class="steps__card-description">
+                            Noah会很快制作好你的图片
+                            <br>（预计用时一分钟）
+                        </p>
+                        <br>
+                        <button class="button button--flex" type="submit" id="upload" onclick="toggleHiddenSection()" disabled><i class="fas fa-upload"></i> 上传</button>
+                        {{ form|crispy }}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    var fileInput = document.getElementById("Chars");
+    var uploadButton = document.getElementById("upload");
+
+    function checkFileInput() {
+      if (fileInput.files.length == 0) {
+        uploadButton.disabled = true;
+      } else {
+        uploadButton.disabled = false;
+      }
+    }
+
+    checkFileInput();
+    fileInput.addEventListener("change", checkFileInput);
+
+    function updateNumber() {
+        fetch('/get_number/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("numberDisplay").textContent = data.number;
+        })
+        .catch(error => console.error('Error fetching the number:', error));
+    }
+    setInterval(updateNumber, 2000);
+
+    function toggleHiddenSection() {
+        var hiddenSection = document.getElementById("hiddenSection");
+        var stepsSection = document.getElementById("stepsSection");
+
+        if (hiddenSection.style.display === "none") {
+            hiddenSection.style.display = "block";
+            stepsSection.style.display = "none";
+        } else {
+            hiddenSection.style.display = "none";
+            stepsSection.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
+{% endblock content %}

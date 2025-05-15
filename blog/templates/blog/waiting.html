@@ -1,0 +1,57 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+
+        <title>NoahAI Designer</title>
+</head>
+<body>
+       <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="{% static 'blog/ground.png' %}" alt="" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            
+							Noah世界 <br> 体验不一样的人生
+                        </h1>
+						<h1>Current Number: <span id="numberDisplay">0</span></h1>
+                        <p class="home__description">
+                            Create incredible world design for yourself. 
+                            Add fresness to your new ideas.
+                        </p>
+                        
+                    </div>
+
+                    <div class="home__social">
+                        <span class="home__social-follow">Follow Us</span>
+
+                        <div class="home__social-links">
+                            <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+</body>
+</html>

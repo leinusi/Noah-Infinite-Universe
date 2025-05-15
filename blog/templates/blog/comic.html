@@ -1,0 +1,116 @@
+{% extends "blog/base.html" %}
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+
+<div id="hiddenSection" style="display: none;">
+    <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="{% static 'blog/ground.png' %}" alt="" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            
+							正在生成剧情以及漫画<br>请耐心等待 
+                        </h1>
+                        <p class="home__description">
+                            Create incredible world designed for yourself. 
+                            Add fresness to your new ideas.
+                        </p>
+                        
+                    </div>
+
+                    <div class="home__social">
+                        <span class="home__social-follow">Follow Us</span>
+
+                        <div class="home__social-links">
+                            <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+</div>	
+
+
+	
+	
+	
+<section class="steps section container" id="stepsSection">
+    <div class="form-group">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">
+                    世界主题<br>
+                </h2>
+
+                <div class="steps__card">
+                    
+                    <legend class="border-bottom mb-4">输入你想要的故事背景</legend>
+                        <!-- 文本输入框 -->
+                    <textarea name="story_background" class="form-control" rows="4" placeholder="在这里输入你的故事背景..."></textarea>
+   
+                 
+                    <h3 class="steps__card-title">点击“上传”按钮</h3>
+                    <p class="steps__card-description">
+                        Noah会为你生成剧情以及漫画
+                        <br>（预计用时一分钟）
+                    </p>
+                    <!-- 上传按钮 -->
+                    <div class="form-group">
+                        <button class="button button--flex" type="submit"id="upload" onclick="toggleHiddenSection()" ><i class="fas fa-upload"></i> 上传</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    var fileInput = document.getElementById("Chars");
+    var uploadButton = document.getElementById("upload");
+
+    function checkFileInput() {
+      if (fileInput.files.length == 0) {
+        uploadButton.disabled = true;
+      } else {
+        uploadButton.disabled = false;
+      }
+    }
+
+    checkFileInput();
+    fileInput.addEventListener("change", checkFileInput);
+
+    function updateNumber() {
+        fetch('/get_number/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("numberDisplay").textContent = data.number;
+        })
+        .catch(error => console.error('Error fetching the number:', error));
+    }
+    setInterval(updateNumber, 2000);
+
+    function toggleHiddenSection() {
+        var hiddenSection = document.getElementById("hiddenSection");
+        var stepsSection = document.getElementById("stepsSection");
+
+        if (hiddenSection.style.display === "none") {
+            hiddenSection.style.display = "block";
+            stepsSection.style.display = "none";
+        } else {
+            hiddenSection.style.display = "none";
+            stepsSection.style.display = "block";
+        }
+    }
+</script>
+{% endblock content %}

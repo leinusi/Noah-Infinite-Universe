@@ -1,0 +1,105 @@
+{% load static %}
+<!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="../Noah_server/NoahAI_web_server/users/templates/users/assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" >
+        <title>NoahAI Designer</title>
+    </head>
+	<!--==================== HEADER ====================-->
+        <header class="header" id="header">
+            <nav class="nav container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> NoahAI
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{% url 'blog-home' %}" class="nav__link active-link">主页</a>
+                        </li>
+						{% if user.is_authenticated %}
+                        <li class="nav__item">
+                            <a href="{% url 'blog-ImgCreate' %}" class="nav__link">开始换脸</a>
+							
+                        </li>
+                        <li class="nav__item">
+                            <a href="{% url 'comic' %} " class="nav__link"> 生成漫画</a>
+                        </li>
+						
+						<li class="nav__item">
+                            <a href="{% url 'blog-ImgShow' user %}" class="nav__link">我的照片</a>
+                        </li>
+						<li class="nav__item">
+                            <a href="{% url 'profile' %}" class="nav__link"><i class="fas fa-user"></i> {{ user.username }}</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">鼓励一下</a>
+                        </li>
+						<li class="nav__item">
+                            <a href="{% url 'logout' %}" class="nav__link">退出登录</a>
+                        </li>
+						 {% else %}
+						 <li class="nav__item">
+                            <a href="{% url 'login' %} " class="nav__link"><i class="fas"></i> 登录</a>
+                         </li>
+						 <li class="nav__item">
+                            <a href="{% url 'register' %} " class="nav__link"> <i class="fas fa-sign-in-alt"></i> 注册</a>
+                         </li>
+						 {% endif %}
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+      <div class="container my-bg">
+        {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+          {% endfor %}
+        {% endif %}
+    {% block content %}
+      
+    {% endblock  %}
+	  <a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'blog/max.js' %}"></script>
+</div> 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  </body>
+</html>

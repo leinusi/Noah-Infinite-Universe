@@ -1,0 +1,41 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<body>
+    <section class="steps section container">
+       <div class="form-group">
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">
+                    {{ user.username }} 的照片 ({{ images|length }})
+                </h2>
+               
+                  
+                        {% for image_rel_path in images %}
+                        <article class="media steps__card">
+                            <!-- 当点击图片时，会在新窗口或标签页中打开图片的原始文件 -->
+                            <a href="{{ MEDIA_URL }}/media/{{ image_rel_path }}" target="_blank">
+                                <img src="{{ MEDIA_URL }}/media/{{ image_rel_path }}" alt="{{ image_rel_path }}" class="thumbnail-image">
+                            </a>
+                            <!-- 这里您可以添加其他与该图像相关的内容或描述 -->
+                        </article>
+                        {% endfor %}
+                 
+			   
+             </div>
+           
+       </div>
+    </section>
+</body>
+<!-- 这部分是为了添加CSS来定义图片的缩略图大小 -->
+<style>
+    .thumbnail-image {
+        width: 400px; /* 设置图像的宽度 */
+        height: auto; /* 根据宽度自动调整高度，以保持纵横比 */
+        display: block; /* 让图像成为块级元素，以便设置水平居中 */
+        margin: 0 auto; /* 设置左右边距为自动，实现水平居中 */
+    }
+</style>
+
+{% endblock content %}
+
+

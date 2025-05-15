@@ -1,0 +1,49 @@
+/*=============== BUTTONS ===============*/
+.button{
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #FFF;
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+    transition: .3s;
+
+    &:hover .button__icon{
+        transform: translateX(.25rem);
+    }
+
+    &:hover{
+        background-color: var(--first-color-alt);
+    }
+
+    &__icon{
+        transition: .3s;
+    }
+
+    &--flex{
+        display: inline-flex;
+        align-items: center;
+        column-gap: .5rem;
+    }
+
+    &--link{
+        color: var(--first-color);
+        font-weight: var(--font-medium);
+
+        &:hover .button__icon{
+            transform: translateX(.25rem);
+        }
+    }
+}
+.submitBtn {
+    display: block; /* 设置显示方式为块级元素 */
+    margin-left: auto; /* 设置左边距为自动 */
+    padding: 30px 35px; /* 设置内边距为15像素上下，30像素左右 */
+    border: none; /* 取消边框 */
+    background-color: rgb(10, 90, 20); /* 设置背景颜色为紫色 */
+    color: rgba(255, 255, 255, 0.9); /* 设置字体颜色为白色，90%透明度 */
+    border-radius: 6px; /* 设置边框圆角为6像素 */
+    cursor: pointer; /* 设置鼠标样式为指针 */
+    font-size: 16px; /* 设置字号为16像素 */
+    margin-top: 30px; /* 设置上边距为30像素 */
+  }

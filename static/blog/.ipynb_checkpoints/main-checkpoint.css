@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); /* 导入Lato字体样式 */
+@import url('path-to-normalize.css/normalize.css');
+body {
+  background-image: url('castle.png'); /* 替换 'your-image-url.jpg' 为实际的图片URL */
+  background-size: cover; /* 使背景图像覆盖整个页面 */
+  background-repeat: no-repeat; /* 防止背景图像重复 */
+  background-attachment: fixed; /* 固定背景图像，使其不随页面滚动而滚动 */
+  background-color: #fafafa; /* 如果背景图像加载失败，设置一个备用背景颜色 */
+  color: #333333;
+  margin-top: 0;
+  box-sizing: border-box; /* 设置盒模型为边框盒 */
+  margin: 0; /* 设置外边距为0 */
+  padding: 0; /* 设置内边距为0 */
+  font-family: "lato", sans-serif; /* 设置字体为Lato */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #000000;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background-color: rgba(255, 255, 255, 0.9); /* 背景颜色白色，90%透明度 */
+  width: 750px; /* 设置宽度为400像素 */
+  height:630px; /* 设置表单的高度为300像素 */
+  border-radius: 8px; /* 设置边框圆角为8像素 */
+  padding: 20px 70px; /* 设置内边距为20像素上下，40像素左右 */
+  box-shadow: 0 10px 25px rgb(8, 8, 8); /* 设置阴影效果 */
+  display: flex; /* 设置显示方式为弹性盒 */
+  justify-content: center; /* 设置水平居中 */
+  align-items: center; /* 设置垂直居中 */
+  margin: auto;
+  margin-top: 70px;
+  
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.welcome-message {
+    font-size: 36px; /* 你可以根据需要调整字体大小 */
+}
+
+
+.btnjump {
+  display: block; /* 设置显示方式为块级元素 */
+  margin-left: auto; /* 设置左边距为自动 */
+  padding: 15px 30px; /* 设置内边距为15像素上下，30像素左右 */
+  border: none; /* 取消边框 */
+  background-color: purple; /* 设置背景颜色为紫色 */
+  color: rgba(255, 255, 255, 0.9); /* 设置字体颜色为白色，90%透明度 */
+  border-radius: 6px; /* 设置边框圆角为6像素 */
+  cursor: pointer; /* 设置鼠标样式为指针 */
+  font-size: 16px; /* 设置字号为16像素 */
+  margin-top: 30px; /* 设置上边距为30像素 */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text-center.first {
+  padding: 20px;
+  font-family: "Your Font", sans-serif; /* 用你喜欢的字体替换 "Your Font" */
+  font-size: 50px; /* 用你希望的字体大小替换 16px */
+  animation: fade-in 4s; /* 指定动画的名称和持续时间 */
+}
+
+.text-center.first span:nth-child(1) {
+  animation-delay: 0s; /* 第一个字母没有延迟 */
+}
+
+.text-center.first span:nth-child(2) {
+  animation-delay: 0.2s; /* 第二个字母延迟 0.2 秒 */
+}
+
+.text-center.first span:nth-child(3) {
+  animation-delay: 0.4s; /* 第三个字母延迟 0.4 秒 */
+}
+
+.text-center.first span:nth-child(4) {
+  animation-delay: 0.6s; /* 第四个字母延迟 0.6 秒 */
+}
+
+.text-center.first span:nth-child(5) {
+  animation-delay: 0.8s; /* 第五个字母延迟 0.8 秒 */
+}
+
+.text-center.first span:nth-child(6) {
+  animation-delay: 1.0s; /* 第六个字母延迟 1.0 秒 */
+}
+
+.text-center.first span:nth-child(7) {
+  animation-delay: 1.2s; /* 第七个字母延迟 1.2 秒 */
+}
+
+.text-center.first span:nth-child(8) {
+  animation-delay: 1.4s; /* 第八个字母延迟 1.4 秒 */
+}
+
+.text-center.first span:nth-child(9) {
+  animation-delay: 1.6s; /* 第七个字母延迟 1.2 秒 */
+}
+
+.text-center.first span:nth-child(10) {
+  animation-delay: 1.8s; /* 第八个字母延迟 1.4 秒 */
+}
+@media (max-width: 600px) {
+    .text-center {
+        font-size: 20px;
+    }
+    /* 其他在小屏幕下需要调整的样式 */
+}
+
+
+.submitBtn {
+  display: block; /* 设置显示方式为块级元素 */
+  margin-left: auto; /* 设置左边距为自动 */
+  padding: 30px 35px; /* 设置内边距为15像素上下，30像素左右 */
+  border: none; /* 取消边框 */
+  background-color: purple; /* 设置背景颜色为紫色 */
+  color: rgba(255, 255, 255, 0.9); /* 设置字体颜色为白色，90%透明度 */
+  border-radius: 6px; /* 设置边框圆角为6像素 */
+  cursor: pointer; /* 设置鼠标样式为指针 */
+  font-size: 16px; /* 设置字号为16像素 */
+  margin-top: 30px; /* 设置上边距为30像素 */
+}
+
+.submitBtn:hover {
+  background-color: #9867C5; /* 设置鼠标悬停时的背景颜色为淡紫色 */
+  transform: translateY(-2px); /* 设置鼠标悬停时的向上移动2像素 */
+}
+
+.content-form {
+  background-color: rgba(255, 255, 255, 0.8); /* 背景颜色白色，90%透明度 */
+  width: 450px; /* 设置宽度为400像素 */
+  height:360px; /* 设置表单的高度为300像素 */
+  border-radius: 8px; /* 设置边框圆角为8像素 */
+  padding: 20px 70px; /* 设置内边距为20像素上下，40像素左右 */
+  box-shadow: 0 10px 25px rgb(8, 8, 8); /* 设置阴影效果 */
+  display: flex; /* 设置显示方式为弹性盒 */
+  justify-content: center; /* 设置水平居中 */
+  align-items: center; /* 设置垂直居中 */
+  margin: auto;
+  margin-top: 200px;
+  
+}
+
+::placeholder {
+  color: transparent; /* 设置占位符颜色为透明 */
+}
+
+.thumbnail-image {
+        width: 200px;  /* 您可以根据需要调整这个值 */
+        height: auto;
+}
+
+
+

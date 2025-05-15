@@ -1,0 +1,625 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); /* 导入Lato字体样式 */
+@import url('path-to-normalize.css/normalize.css');
+body {
+  color: #333333;
+  margin-top: 0;
+  box-sizing: border-box; /* 设置盒模型为边框盒 */
+  margin: 0; /* 设置外边距为0 */
+  padding: 0; /* 设置内边距为0 */
+  font-family: "lato", sans-serif; /* 设置字体为Lato */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #000000;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background-color: rgba(255, 255, 255, 0.9); /* 背景颜色白色，90%透明度 */
+  width: 750px; /* 设置宽度为400像素 */
+  height:630px; /* 设置表单的高度为300像素 */
+  border-radius: 8px; /* 设置边框圆角为8像素 */
+  padding: 20px 70px; /* 设置内边距为20像素上下，40像素左右 */
+  box-shadow: 0 10px 25px rgb(8, 8, 8); /* 设置阴影效果 */
+  display: flex; /* 设置显示方式为弹性盒 */
+  justify-content: center; /* 设置水平居中 */
+  align-items: center; /* 设置垂直居中 */
+  margin: auto;
+  margin-top: 70px;
+  
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.welcome-message {
+    font-size: 36px; /* 你可以根据需要调整字体大小 */
+}
+
+
+.btnjump {
+  display: block; /* 设置显示方式为块级元素 */
+  margin-left: auto; /* 设置左边距为自动 */
+  padding: 15px 30px; /* 设置内边距为15像素上下，30像素左右 */
+  border: none; /* 取消边框 */
+  background-color: purple; /* 设置背景颜色为紫色 */
+  color: rgba(255, 255, 255, 0.9); /* 设置字体颜色为白色，90%透明度 */
+  border-radius: 6px; /* 设置边框圆角为6像素 */
+  cursor: pointer; /* 设置鼠标样式为指针 */
+  font-size: 16px; /* 设置字号为16像素 */
+  margin-top: 30px; /* 设置上边距为30像素 */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text-center.first {
+  padding: 20px;
+  font-family: "Your Font", sans-serif; /* 用你喜欢的字体替换 "Your Font" */
+  font-size: 50px; /* 用你希望的字体大小替换 16px */
+  animation: fade-in 4s; /* 指定动画的名称和持续时间 */
+}
+
+.text-center.first span:nth-child(1) {
+  animation-delay: 0s; /* 第一个字母没有延迟 */
+}
+
+.text-center.first span:nth-child(2) {
+  animation-delay: 0.2s; /* 第二个字母延迟 0.2 秒 */
+}
+
+.text-center.first span:nth-child(3) {
+  animation-delay: 0.4s; /* 第三个字母延迟 0.4 秒 */
+}
+
+.text-center.first span:nth-child(4) {
+  animation-delay: 0.6s; /* 第四个字母延迟 0.6 秒 */
+}
+
+.text-center.first span:nth-child(5) {
+  animation-delay: 0.8s; /* 第五个字母延迟 0.8 秒 */
+}
+
+.text-center.first span:nth-child(6) {
+  animation-delay: 1.0s; /* 第六个字母延迟 1.0 秒 */
+}
+
+.text-center.first span:nth-child(7) {
+  animation-delay: 1.2s; /* 第七个字母延迟 1.2 秒 */
+}
+
+.text-center.first span:nth-child(8) {
+  animation-delay: 1.4s; /* 第八个字母延迟 1.4 秒 */
+}
+
+.text-center.first span:nth-child(9) {
+  animation-delay: 1.6s; /* 第七个字母延迟 1.2 秒 */
+}
+
+.text-center.first span:nth-child(10) {
+  animation-delay: 1.8s; /* 第八个字母延迟 1.4 秒 */
+}
+
+
+.submitBtn {
+  display: block; /* 设置显示方式为块级元素 */
+  margin-left: auto; /* 设置左边距为自动 */
+  padding: 30px 35px; /* 设置内边距为15像素上下，30像素左右 */
+  border: none; /* 取消边框 */
+  background-color: purple; /* 设置背景颜色为紫色 */
+  color: rgba(255, 255, 255, 0.9); /* 设置字体颜色为白色，90%透明度 */
+  border-radius: 6px; /* 设置边框圆角为6像素 */
+  cursor: pointer; /* 设置鼠标样式为指针 */
+  font-size: 16px; /* 设置字号为16像素 */
+  margin-top: 30px; /* 设置上边距为30像素 */
+}
+
+.submitBtn:hover {
+  background-color: #9867C5; /* 设置鼠标悬停时的背景颜色为淡紫色 */
+  transform: translateY(-2px); /* 设置鼠标悬停时的向上移动2像素 */
+}
+
+.content-form {
+  background-color: rgba(255, 255, 255, 0.8); /* 背景颜色白色，90%透明度 */
+  width: 450px; /* 设置宽度为400像素 */
+  height:360px; /* 设置表单的高度为300像素 */
+  border-radius: 8px; /* 设置边框圆角为8像素 */
+  padding: 20px 70px; /* 设置内边距为20像素上下，40像素左右 */
+  box-shadow: 0 10px 25px rgb(8, 8, 8); /* 设置阴影效果 */
+  display: flex; /* 设置显示方式为弹性盒 */
+  justify-content: center; /* 设置水平居中 */
+  align-items: center; /* 设置垂直居中 */
+  margin: auto;
+  margin-top: 200px;
+  
+}
+
+::placeholder {
+  color: transparent; /* 设置占位符颜色为透明 */
+}
+
+.thumbnail-image {
+        width: 300px;  /* 您可以根据需要调整这个值 */
+        height: auto;
+}
+
+/* 为具有 "form-e-book" 类的元素添加样式 */
+.form-e-book {
+    padding: 23px; /* 设置内边距为23像素 */
+    margin-left: 15px; /* 设置左外边距为15像素 */
+    margin-right: 140px; /* 设置右外边距为140像素 */
+    margin-left: 20px; /* 这个规则实际上会覆盖前面的左外边距设置 */
+    background-color: #F1F1F1; /* 设置背景颜色为淡灰色 */
+}
+
+/* 为 "form-e-book" 类内部的 h3 元素添加样式 */
+.form-e-book h3 {
+    font-size: 13px; /* 设置字体大小为13像素 */
+    font-weight: 900; /* 设置字体粗细为900（较粗） */
+    margin: 0px 0 23px; /* 设置外边距，上边距为0，下边距为23像素 */
+    color: #0084b4; /* 设置文本颜色为蓝色 */
+    text-transform: uppercase; /* 转换文本为大写字母 */
+    text-align: center; /* 文本居中对齐 */
+}
+
+/* 为 "form-e-book" 类内部的 fieldset 元素添加样式 */
+.form-e-book fieldset {
+    padding: 0; /* 设置内边距为0 */
+    margin: 0; /* 设置外边距为0 */
+    border: 0; /* 设置边框为0 */
+}
+
+/* 为 "form-e-book" 类内部的 input 元素添加样式 */
+.form-e-book input {
+    margin-bottom: 10px; /* 设置下外边距为10像素 */
+    padding: 9px 0 9px 5px; /* 设置内边距，上下为9像素，左右为5像素 */
+    width: 100%; /* 设置宽度为100% */
+    box-sizing: border-box; /* 设置盒模型为边框盒 */
+    font-weight: 600; /* 设置字体粗细为600 */
+    font-size: 13px; /* 设置字体大小为13像素 */
+}
+
+/* 为 "form-e-book" 类内部的 fieldset 元素内部的 label 元素添加样式 */
+.form-e-book fieldset label {
+    display: block; /* 设置元素为块级元素，使其独占一行 */
+    padding-left: 15px; /* 设置左内边距为15像素 */
+    padding-top: 10px; /* 设置上内边距为10像素 */
+    text-indent: -15px; /* 设置文本缩进为负值，将文本向左移动 */
+    font-size: 11px; /* 设置字体大小为11像素 */
+    font-weight: 600; /* 设置字体粗细为600 */
+}
+
+/* 为 "form-e-book" 类内部的 fieldset 元素内部的 label 元素内部的 input 元素添加样式 */
+.form-e-book fieldset label input {
+    width: 13px; /* 设置宽度为13像素 */
+    height: 13px; /* 设置高度为13像素 */
+    padding: 0; /* 设置内边距为0 */
+    margin: 0; /* 设置外边距为0 */
+    position: relative; /* 设置定位为相对定位 */
+}
+
+/* 为链接元素添加样式 */
+.form-e-book a {
+    color: #0084b4; /* 设置链接文本颜色为蓝色 */
+}
+
+.wrapper {
+    display: flex;
+}
+
+.section {
+    width: 65%;
+    margin-left: 140px;
+}
+
+.aside {
+    padding-top: 100px;
+    width: 35%;
+}
+
+
+
+/* All document */
+
+* {
+    font-family: sans-serif;
+}
+
+
+/* Header */
+
+.trueLogotype {
+    display: none;
+}
+
+#main-header {
+    width: 100%;
+    height: 110px;
+    border-top: 3px solid #0084b4;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-img {
+    padding: 34px 0;
+    margin-right: 140px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-icons {
+    display: flex;
+    height: 20px;
+    width: 70px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.social-icons li i {
+    color: #0084b4;
+}
+
+
+/* Separator Image */
+
+.separator-image {
+    width: 100%;
+    height: 110px;
+    background-image: url(../img/separator-image.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Wrapper */
+
+.wrapper {
+    display: flex;
+}
+
+
+/* Section */
+
+section {
+    width: 65%;
+    margin-left: 140px;
+}
+
+.img-book {
+    width: 260px;
+    float: right;
+    position: relative;
+    bottom: 40px;
+    right: 40
+}
+
+section h1 {
+    color: #0084b4;
+    border-bottom: 1px solid #F1F1F1;
+    padding-bottom: 40px;
+    margin-top: 60px;
+}
+
+section h2 {
+    color: grey;
+    font-weight: 900;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+section p {
+    line-height: 23px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+section p a {
+    color: darkorange;
+}
+
+.emphasizes {
+    color: #0084b4;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+    margin: 60px 0 60px 0;
+}
+
+
+/* Aside */
+
+aside {
+    padding-top: 50px;
+    width: 35%;
+}
+
+.form-ebook {
+    padding: 50px;
+    margin-left: 15px;
+    margin-right: 140px;
+    margin-left: 20px;
+    background-color: #F1F1F1;
+}
+
+.form-ebook h3 {
+    font-size: 13px;
+    font-weight: 900;
+    margin: 0px 0 23px;
+    color: #0084b4;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.form-ebook fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.form-ebook input {
+    margin-bottom: 10px;
+    padding: 9px 0 9px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.form-ebook fieldset label {
+    display: block;
+    padding-left: 15px;
+    padding-top: 10px;
+    text-indent: -15px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.form-ebook fieldset label input {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.form-ebook a {
+    color: #0084b4;
+}
+
+.download-btn {
+    background-color: #00aced;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* Footer */
+
+.footer-frame {
+    background-color: #666666;
+    height: 140px;
+    display: flex;
+}
+
+.footer-frame .img-div {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.footer-frame img {
+    height: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding-left: 140px;
+}
+
+.nav-footer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 140px;
+}
+
+.nav-footer ul {
+    display: flex;
+}
+
+.nav-footer li {
+    color: #FFFFFF;
+    font-size: 11px;
+}
+
+.nav-footer li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-footer li:nth-child(2) {
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    margin-right: 8px;
+    padding-right: 8px;
+    margin-left: 8px;
+    padding-left: 8px;
+}
+
+
+/* Popup */
+
+#popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+.popup-header {
+    padding: 15px 20px;
+    background-color: #00aced;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 10px solid #00aced;
+    width: 40%;
+}
+
+.close {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1080px) {
+    .wrapper {
+        display: block;
+    }
+    section,
+    aside {
+        margin: 0 auto;
+        padding-top: 0;
+    }
+    .form-ebook {
+        margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+    .emphasizes {
+        display: none;
+    }
+}
+
+@media (max-width: 940px) {
+    /* 更多规则... */
+}
+
+@media (max-width: 750px) {
+    /* 更多规则... */
+}
+
+
+.button--white-black {
+    background-color: white;
+    color: black;
+    border: 1px solid black; /* Optional: Add a black border */
+    transition: 0.3s; /* Optional: Smooth transition for hover effect */
+}
+
+.button--white-black:hover {
+    background-color: black;
+    color: white;
+}

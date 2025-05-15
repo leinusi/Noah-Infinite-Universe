@@ -1,0 +1,662 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+
+        <title>NoahAI Designer</title>
+</head>
+<body>
+    {% if user.is_authenticated %}	
+	   <header class="header" id="header">
+            <nav class="nav container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a href="#" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> NoahAI
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="{% url 'blog-home' %}" class="nav__link active-link">主页</a>
+                        </li>
+						{% if user.is_authenticated %}
+                        <li class="nav__item">
+                            <a href="{% url 'blog-ImgCreate' %}" class="nav__link">开始换脸</a>
+							
+                        </li>
+                        <li class="nav__item">
+                            <a href="{% url 'comic' %} " class="nav__link"> 生成漫画</a>
+                         </li>
+                        
+						
+						<li class="nav__item">
+                            <a href="{% url 'blog-ImgShow' user %}" class="nav__link">我的照片</a>
+                        </li>
+						<li class="nav__item">
+                            <a href="{% url 'profile' %}" class="nav__link"><i class="fas fa-user"></i> {{ user.username }}</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">鼓励一下</a>
+                        </li>
+						<li class="nav__item">
+                            <a href="{% url 'logout' %}" class="nav__link">退出登录</a>
+                        </li>
+						 {% else %}
+						 <li class="nav__item">
+                            <a href="{% url 'login' %} " class="nav__link"><i class="fas"></i> 登录</a>
+                         </li>
+						 <li class="nav__item">
+                            <a href="{% url 'register' %} " class="nav__link"> <i class="fas fa-sign-in-alt"></i> 注册</a>
+                         </li>
+						 {% endif %}
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+<div id="hiddenSection" style="display: none;">
+    <section class="home" id="home">
+        <div class="home__container container grid">
+            <img src="{% static 'blog/ground.png' %}" alt="" class="home__img">
+            <div class="home__data">
+                <h1 class="home__title">
+                    您的数字模型<br>已在制作<br>请耐心等待 
+                </h1>
+                <h1>预计等待时间: <span id="numberDisplay">15分钟</span></h1>
+                <p class="home__description">
+                    Create incredible world designed for yourself. 
+                    Add fresness to your new ideas.
+                </p>
+            </div>
+            <div class="home__social">
+                <span class="home__social-follow">Follow Us</span>
+                <div class="home__social-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="steps section container" id="steps">
+    <form action="upload_user" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="steps__bg">
+                <h2 class="section__title-center steps__title">
+                    初次使用的用户 <br> 需要先创建你的数字模型<br>已建立模型?<a class="steps__title" href="{% url 'blog-ImgCreate' %}" >开始制作</a>
+
+
+                </h2>
+                <div class="steps__container grid">
+                    <div class="steps__card">
+                        <div class="steps__card-number">01</div>
+                        <h3 class="steps__card-title">选择你的照片</h3>
+                        <p class="steps__card-description">
+                            选择3-10张<br>
+                            你的正面和侧面的清晰人像<br>
+                            （最好不要有遮挡哦）<br><br>
+                        </p>
+                        <input class="button--link button--flex" type="file" name="Imgg" id="Imgg" multiple="" size="5" accept="image/*" style="width: 200px">
+                    </div>
+                    <div class="steps__card">
+                        <div class="steps__card-number">02</div>
+                        <h3 class="steps__card-title">点击“上传”按钮</h3>
+                        <p class="steps__card-description">
+                            你的图片会发送给<br>Noah模型和Lora<br>模型进行处理 
+                        </p>
+                        <br>
+                        <button class="button button--flex" type="submit" id="upload" disabled ><i class="fas fa-upload"></i>上传</button>
+                    </div>
+                    <div class="steps__card">
+                        <div class="steps__card-number">03</div>
+                        <h3 class="steps__card-title">创建模型</h3>
+                        <p class="steps__card-description">
+                            Noah助手会建立你的个人数字权重模型，这一步大概需要15min左右，请稍稍等待
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    已创建模型？ <a class="button--link button--flex" href="{% url 'blog-ImgCreate' %}">去创作照片<i class="fas"></i></a>
+                </small>
+            </div>
+        </div>
+    </form>
+    <section class="home" id="home">
+        <div class="home__container container grid">
+            <img src="{% static 'blog/ground.png' %}" alt="" class="home__img">
+            <div class="home__data">
+                <h1 class="home__title">
+                    Noah世界 <br> 体验不一样的人生
+                </h1>
+                <p class="home__description">
+                    Create incredible world design for yourself. 
+                    Add fresness to your new ideas.
+                </p>
+            </div>
+            <div class="home__social">
+                <span class="home__social-follow">Follow Us</span>
+                <div class="home__social-links">
+                    <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script>
+    // Get the file input and upload button elements
+    var fileInput = document.getElementById("Imgg");
+    var uploadButton = document.getElementById("upload");
+
+    // Define a function to enable or disable the upload button based on the file input value
+	 function updateNumber() {
+        fetch('/get_number/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("numberDisplay").textContent = data.number;
+        })
+        .catch(error => console.error('Error fetching the number:', error));
+    }
+    setInterval(updateNumber, 2000);
+    // Call the function once when the page loads to set initial state
+    checkFileInput();
+	
+	
+    function checkFileInput() {
+        if (fileInput.files.length == 0) {
+            uploadButton.disabled = true;
+        } else {
+            uploadButton.disabled = false;
+        }
+    }
+
+    function showHiddenSection() {
+        var section = document.getElementById("hiddenSection");
+        section.style.display = "block";
+    }
+
+    function hideStepsSection() {
+        var stepsSection = document.getElementById("steps");
+        stepsSection.style.display = "none";
+    }
+
+    function handleUploadButtonClick() {
+        showHiddenSection();
+        hideStepsSection();
+    }
+    function updateNumber() {
+        fetch('/get_number/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("numberDisplay").textContent = data.number;
+        })
+        .catch(error => console.error('Error fetching the number:', error));
+    }
+    setInterval(updateNumber, 2000);
+    // Call the function once when the page loads to set initial state
+    checkFileInput();
+
+    // Add event listeners
+    fileInput.addEventListener("change", checkFileInput);
+    uploadButton.addEventListener("click", handleUploadButtonClick);
+    
+    
+</script>
+
+            <!--==================== HOME ====================-->
+       
+			<!--==================== PRODUCTS ====================-->
+	        <a href="#" class="scrollup" id="scroll-up"> 
+                <i class="ri-arrow-up-fill scrollup__icon"></i>
+            </a>
+
+                <!--=============== SCROLL REVEAL ===============-->
+           <script src="assets/js/scrollreveal.min.js"></script>
+        
+                 <!--=============== MAIN JS ===============-->
+           <script src="{% static 'blog/max.js' %}"></script>
+    {% else %}
+       
+        <!--==================== HEADER ====================-->
+	    
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> NoahAI
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active-link">主页</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">关于我们</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#steps" class="nav__link">怎样使用</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#faqs" class="nav__link">产品效果</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">鼓励一下</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="ri-close-line"></i>
+                    </div>
+                </div>
+
+                <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!--==================== HOME ====================-->
+            <section class="home" id="home">
+                <div class="home__container container grid">
+                    <img src="{% static 'blog/home.jpg' %}" alt="" class="home__img">
+
+                    <div class="home__data">
+                        <h1 class="home__title">
+                            Noah世界 <br> 体验不一样的人生
+                        </h1>
+                        <p class="home__description">
+                            Create incredible world design for yourself. 
+                            Add fresness to your new ideas.
+                        </p>
+                        <a href="#about" class="button button--flex">
+                            了解一下 <i class="ri-arrow-right-down-line button__icon"></i>
+                        </a>
+						<a href="{% url 'login' %}" class="button--link button--flex">
+                            现在体验 <i class="fas"></i>
+                        </a>
+                    </div>
+
+                    <div class="home__social">
+                        <span class="home__social-follow">Follow Us</span>
+
+                        <div class="home__social-links">
+                            <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== ABOUT ====================-->
+            <section class="about section container" id="about">
+                <div class="about__container grid">
+                    <img src="{% static 'blog/about.jpg' %}" alt="" class="about__img">
+
+                    <div class="about__data">
+                        <h2 class="section__title about__title">
+                            什么是Noah世界 <br> &怎样获得虚拟世界<br>专属照片
+                        </h2>
+
+                        <p class="about__description">
+							无需出门 无需化妆
+                            <br>我们用扩散模型技术和lora模型
+							<br>打造一个你从未体验过的新世界
+                        </p>
+
+                        <div class="about__details">
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                选择几张你的照片创建模型.
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                等待模型建立完成.
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                选择你想要体验的人像图片来拟合.
+                            </p>
+                            <p class="about__details-description">
+                                <i class="ri-checkbox-fill about__details-icon"></i>
+                                获得你的专属虚拟艺术照.
+                            </p>
+                        </div>
+
+                        <a href="#steps" class="button--link button--flex">
+                            怎样使用 <i class="ri-arrow-right-down-line button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== STEPS ====================-->
+			
+            <section class="steps section container" id="steps">
+			  <form action="upload_user" method="POST" enctype="multipart/form-data">
+			   <div class="form-group">
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        初次使用的用户 <br> 需要先创建你的数字模型
+                    </h2>
+                    <div class="steps__container grid">
+                        <div class="steps__card">
+                            <div class="steps__card-number">01</div>
+                            <h3 class="steps__card-title">选择你的照片</h3>
+                            <p class="steps__card-description">
+                                选择3-10张
+								<br>你的正面和侧面的清晰人像
+								<br>
+							   （最好不要有遮挡哦）
+								<br>
+								<br>
+								 
+								
+								
+                            </p>
+							
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">02</div>
+                            <h3 class="steps__card-title">点击“上传”按钮</h3>
+                            <p class="steps__card-description">
+                                你的图片会发送给Noah模型和Lora模型进行处理 
+							</p>
+							<br>
+							
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">03</div>
+                            <h3 class="steps__card-title">创建模型</h3>
+                            <p class="steps__card-description">
+                                Noah助手会建立你的个人数字权重模型，这一步大概需要15min左右，请稍稍等待
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== PRODUCTS ====================-->
+		<section class="product section container" id="products"> 
+            <div class="form-group">
+			  <form action="upload_user" method="POST" enctype="multipart/form-data">
+
+                <div class="steps__bg">
+                    <h2 class="section__title-center steps__title">
+                        开始拟合 <br> 
+                    </h2>
+                    <div class="steps__container grid">
+                        <div class="steps__card">
+                            <div class="steps__card-number">01</div>
+                            <h3 class="steps__card-title">选择你想要的模版图片</h3>
+                            <p class="steps__card-description">
+                                选择一张
+								<br>
+							   （模版需要含有清晰人像哦）
+								<br>
+								<br>
+								 
+								
+								
+                            </p>
+							
+                        </div>
+
+                        <div class="steps__card">
+                            <div class="steps__card-number">02</div>
+                            <h3 class="steps__card-title">点击“上传”按钮</h3>
+							
+                            <p class="steps__card-description">
+                                Noah会很快制作好你的图片 
+							</p>
+							<br>
+							
+                        </div>
+                    </div>
+                  </div>   
+    
+       </section>
+<!--==================== QUESTIONS ====================-->
+           <section class="product section container" id="faqs">
+                <h2 class="section__title-center">
+                    NoahAI <br> 生成效果
+                </h2>
+
+                <p class="product__description">
+                    Below are some examples of our product results. 
+					Please unleash your imagination and achieve your desires.
+                </p>
+
+                <div class="product__container grid">
+                 
+ 
+
+                        <img src="{% static 'blog/1.jpg' %}" alt="" class="product__img">
+
+                        
+
+                        
+                    </article>
+
+                    <article class="product__card">
+                     
+
+                        <img src="{% static 'blog/2.jpg' %}" alt="" class="product__img">
+
+                        
+                    </article>
+
+                    <article class="product__card">
+                      
+
+                        <img src="{% static 'blog/3.png' %}" alt="" class="product__img">
+
+                        
+                    </article>
+			        <a href="{% url 'login' %}" class="button--link button--flex">
+                            我也试试 <i class="fas"></i>
+                    </a>
+
+                  
+
+                    
+                </div>
+            </section>
+
+
+            <!--==================== CONTACT ====================-->
+            <section class="contact section container" id="contact">                
+                <div class="contact__container grid">
+                    <div class="contact__box">
+                        <h2 class="section__title">
+                            喜欢吗？ <br> 请支持一下 <br> 校园开发者需要你的鼓励
+                        </h2>
+
+                        <div class="contact__data">
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Call us for instant support</h3>
+                                <span class="contact__description">
+                                    <i class="ri-phone-line contact__icon"></i>
+                                    +999 888 777
+                                </span>
+                            </div>
+
+                            <div class="contact__information">
+                                <h3 class="contact__subtitle">Write us by mail</h3>
+                                <span class="contact__description">
+                                    <i class="ri-mail-line contact__icon"></i>
+                                    211840248@nju.edu.cn
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="" class="contact__form">
+                        <div class="contact__inputs">
+                            <div class="contact__content">
+                                <input type="email" placeholder=" " class="contact__input">
+                                <label for="" class="contact__label">Email</label>
+                            </div>
+
+                            <div class="contact__content">
+                                <input type="text" placeholder=" " class="contact__input">
+                                <label for="" class="contact__label">Subject</label>
+                            </div>
+
+                            <div class="contact__content contact__area">
+                                <textarea name="message" placeholder=" " class="contact__input"></textarea>                              
+                                <label for="" class="contact__label">Message</label>
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--==================== FOOTER ====================-->
+        <footer class="footer section">
+            <div class="footer__container container grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">
+                        <i class="ri-leaf-line footer__logo-icon"></i> NoahAI
+                    </a>
+
+                    <h3 class="footer__title">
+                        Subscribe to our newsletter <br> to stay update
+                    </h3>
+
+                    <div class="footer__subscribe">
+                        <input type="email" placeholder="Enter your email" class="footer__input">
+
+                        <button class="button button--flex footer__button">
+                            Subscribe
+                            <i class="ri-arrow-right-up-line button__icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Our Address</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">NJU Xianlin Campus 	-139</li>
+                        
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Contact Us</h3>
+
+                    <ul class="footer__data">
+                        <li class="footer__information">Wechat: lns_linus</li>
+                        
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/" class="footer__social-link">
+                                <i class="ri-facebook-fill"></i>
+                            </a>
+                            <a href="https://www.instagram.com/" class="footer__social-link">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                            <a href="https://twitter.com/" class="footer__social-link">
+                                <i class="ri-twitter-fill"></i>
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+              </div>
+
+            
+        </footer>
+	  
+		<section class="product section container" >
+               
+
+                <p class="product__description">
+                    Please reward us with Wechat to support us
+                </p>
+
+               
+			<p class="footer__copy">&#169; Lnscode. All rigths reserved</p>
+        </section>
+		<a href="#" class="scrollup" id="scroll-up"> 
+            <i class="ri-arrow-up-fill scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL ===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+        
+        <!--=============== MAIN JS ===============-->
+        <script src="{% static 'blog/max.js' %}"></script>
+        
+     
+</body>
+</html>
+        {% endif %}
+
+    
+
+{% endblock content %}
+
+
